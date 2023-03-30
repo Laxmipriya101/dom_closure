@@ -1,0 +1,146 @@
+<html lang="en">
+  <head>
+    <title>closure</title>
+  </head>
+  <body>
+    <h1 style="color: red">closure</h1>
+    <div>
+      Q1.
+      <pre style="color: blue">
+        function counter(){ 
+          var counter = 0; 
+           function IncreaseCounter() {
+             return counter += 1; 
+            }; 
+            return IncreaseCounter; 
+        } 
+        var counter = counter();
+        alert(counter()); 
+        alert(counter()); 
+        alert(counter()); 
+        alert(counter());
+      </pre>
+      <p style="color: orange">Output: 1 2 3 4</p>
+    </div>
+
+    <div>
+      Q2.
+      <pre style="color: blue">
+        let count = 0;
+        (function () {
+          if (count === 0) {
+            let count = 1;
+            console.log(count); // What is logged?
+          }
+          console.log(count); // What is logged?
+        })();
+      </pre>
+      <p style="color: orange">Output: 1 0</p>
+    </div>
+
+    <div>
+      Q3.
+      <pre style="color: blue">
+        for (var i = 0; i < 3; i++) {
+          setTimeout(function log() {
+            console.log(i); // What is logged?
+          }, 1000);
+        }
+      </pre>
+      <p style="color: orange">Output: 3 3 3</p>
+      <p>
+        Explanation: Here the setTimeout takes the latest value , In this
+        condition the latest value is 3 . For traversing its print 3 times 3
+        value .
+      </p>
+    </div>
+
+    <div>
+      Q4.Write a code to calculate area of a rectangle using inner function. In
+      this case outer function should accept parameter length and inner function
+      should accept parameter breadth.
+      <pre style="color: blue">
+       function length(L){
+         function height(H){
+          console.log(L*H);
+        }
+        height(10);
+      }
+      length(10);
+      </pre>
+      <p style="color: orange">Output:100</p>
+    </div>
+
+    <div>
+      Q5. Take a variable in outer function and create an inner function to
+      increase the counter every time it is called
+
+      <pre style="color: blue">
+      function counter(){ 
+          var counter = 0; 
+           function IncreaseCounter() {
+             return counter += 1; 
+            }; 
+            return IncreaseCounter; 
+        } 
+        var counter = counter();
+        alert(counter()); 
+        alert(counter()); 
+        alert(counter()); 
+        alert(counter());
+      </pre>
+    </div>
+
+    <div>
+      Q6.Print Output
+      <pre style="color: blue">
+       var a = 12;
+       (function () {
+          alert(a);
+        })();
+      </pre>
+      <p style="color: orange">Output: 12</p>
+    </div>
+
+    <div>
+      Q7.
+      <pre style="color: blue">
+        var a = 10;
+        var x = (function () {
+          var a = 12;
+         return function () {
+           alert(a);
+          };
+        })();
+        x();
+      </pre>
+      <p style="color: orange">Output: 12</p>
+    </div>
+
+    <div>
+      Q8.
+      <pre style="color: blue">
+        var globalVar = "xyz";
+        (function outerFunc(outerArg) {
+          var outerVar = 'a';
+          (function innerFunc(innerArg) {
+           var innerVar = 'b';
+    
+            console.log(
+            "outerArg = " + outerArg + "\n" +
+            "innerArg = " + innerArg + "\n" +
+            "outerVar = " + outerVar + "\n" +
+            "innerVar = " + innerVar + "\n" +
+            "globalVar = " + globalVar);
+          })(456);
+        })(123);
+      </pre>
+      <p style="color: orange">output:</p>
+      <p style="color: orange">outerArg = 123</p>
+      <p style="color: orange">innerArg = 456</p>
+      <p style="color: orange">outerVar = a</p>
+      <p style="color: orange">innerVar = b</p>
+      <p style="color: orange">globalVar = xyz</p>
+    </div>
+  </body>
+</html>
